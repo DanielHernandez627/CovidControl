@@ -1,18 +1,23 @@
 
 package Controlador;
 
-import Modelo.Usuario;
+import Modelo.Funcionarios;
 
 public class loginCtrl {
     
     /*Inicio Objetos Metodos*/
-    Usuario objusuario = new Usuario();
+    Funcionarios objFuncionario = new Funcionarios();
     /*Fin Objetos Metodos*/
     
-    public void ConsultaUsuario(String usuario,String password){
+    public boolean ConsultaUsuario(String usuario,String password){
         
-        objusuario.controlSesion(password);
-
+        boolean result = false;
+        
+        if (objFuncionario.controlSesion(usuario,password) == true) {
+            result = true;
+        }
+        
+        return result;
     }
     
 }

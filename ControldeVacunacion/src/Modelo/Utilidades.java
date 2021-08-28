@@ -7,7 +7,7 @@ import java.util.Base64;
 
 public class Utilidades {
     
-    public String Encriptar(String password){
+    public String Encriptar(String password){ //Funcion de encriptado de contraseña
         
         String encriptada;
         
@@ -18,7 +18,7 @@ public class Utilidades {
         return encriptada;
     }
     
-    public String DesEncriptar(String password){
+    public String DesEncriptar(String password){ //Funcion de desenctriptado de contraseña
         
         String decodificada;
         

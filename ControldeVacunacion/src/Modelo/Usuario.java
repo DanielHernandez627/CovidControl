@@ -13,6 +13,10 @@ public class Usuario {
     private String password;
     private String celular;
 
+    /*Inicio objetos*/
+        Utilidades util = new Utilidades();
+    /*Fin objetos*/
+    
     public Usuario() {
     }
 
@@ -71,30 +75,6 @@ public class Usuario {
 
     public void setCelular(String celular) {
         this.celular = celular;
-    }
-    
-    public boolean controlSesion(String password){
-        
-        Conexion conexion = new Conexion();
-        ResultSet rs = null;
-        
-        String query = "SELECT * FROM cargos";
-        String prueba = "";
-        
-        rs = conexion.ExeConsulta(query);
-        
-        try{
-            
-            while(rs.next()){
-                prueba = prueba + rs.getString("IdCargo");
-                prueba = prueba + rs.getString("NombreCargo");
-            }
-            
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        
-        return false;
     }
     
 }

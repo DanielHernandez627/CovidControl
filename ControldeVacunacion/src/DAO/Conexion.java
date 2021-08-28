@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 
 public class Conexion {
@@ -20,7 +19,7 @@ public class Conexion {
         try 
           {
               //cargar nuestro driver
-              Class.forName("com.mysql.jdbc.Driver");//jdbc:mysql://localhost:3306/programadores
+              Class.forName("com.mysql.jdbc.Driver");
               con=DriverManager.getConnection("jdbc:mysql://localhost:3306/covidcontrol","root","");
               System.out.println("conexion establecida");
               

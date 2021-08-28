@@ -2,6 +2,7 @@
 package Vista;
 
 import Controlador.loginCtrl;
+import javax.swing.JOptionPane;
 
 public class Index extends javax.swing.JFrame {
 
@@ -63,14 +64,15 @@ public class Index extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
@@ -79,7 +81,13 @@ public class Index extends javax.swing.JFrame {
         usuario = txt_user.getText();
         password = txt_pass.getText();
         
-        login.ConsultaUsuario(usuario, password);
+        if(login.ConsultaUsuario(usuario, password) == true){
+            Menu_Principal mnp = new Menu_Principal();
+            mnp.setVisible(true);
+            this.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(null, "Contraseña o usuario incorrecto intente de nuevo!!");
+        }
         
     }//GEN-LAST:event_btn_ingresarActionPerformed
 
