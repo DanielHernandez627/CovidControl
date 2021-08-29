@@ -31,14 +31,14 @@ public class Conexion {
          return con;
    }
    
-   public boolean ExeConsultaBasica(String Query){
+   public boolean ExeConsultaBasica(String Query){ //Metodo para Update,Insert y Delete
        
        Connection reg = conect();
        boolean execution = false;
        
        try{
            PreparedStatement stm = reg.prepareStatement(Query);
-           stm.executeQuery();
+           stm.executeUpdate();
            reg.close();
            execution = true;
        }catch(SQLException ex){
@@ -48,7 +48,7 @@ public class Conexion {
        return execution;
    }
    
-   public ResultSet ExeConsulta(String Query){
+   public ResultSet ExeConsulta(String Query){ //Metodo de Consulta de datos
        
       Connection conect = conect();
       ResultSet rs = null;

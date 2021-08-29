@@ -1,9 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vista;
+
+import Controlador.loginCtrl;
 
 /**
  *
@@ -11,11 +8,16 @@ package Vista;
  */
 public class Menu_Principal extends javax.swing.JFrame {
 
+    /*Inicio objetos de Controladores*/
+        loginCtrl login = new loginCtrl();
+    /*Fin objetos de Controladores*/
+    
     /**
      * Creates new form Menu_Principal
      */
     public Menu_Principal() {
         initComponents();
+        controlSesion();
     }
 
     /**
@@ -31,8 +33,9 @@ public class Menu_Principal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btn_Admusuarios = new javax.swing.JButton();
         btn_Admfuncionarios = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btn_Admvacunas = new javax.swing.JButton();
         btn_salir = new javax.swing.JButton();
+        btn_Reporte = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,10 +50,15 @@ public class Menu_Principal extends javax.swing.JFrame {
         jPanel2.add(btn_Admusuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 210, -1));
 
         btn_Admfuncionarios.setText("Administracion de Funcionarios");
-        jPanel2.add(btn_Admfuncionarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 210, -1));
+        btn_Admfuncionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_AdmfuncionariosActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btn_Admfuncionarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 210, -1));
 
-        jButton3.setText("Reporte de Vacunacion");
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 210, -1));
+        btn_Admvacunas.setText("Administracion de Vacunas");
+        jPanel2.add(btn_Admvacunas, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 210, -1));
 
         btn_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user_interface_exit_door_icon_191677.png"))); // NOI18N
         btn_salir.addActionListener(new java.awt.event.ActionListener() {
@@ -59,6 +67,9 @@ public class Menu_Principal extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btn_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 50, 30));
+
+        btn_Reporte.setText("Reporte de Vacunacion");
+        jPanel2.add(btn_Reporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 210, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,8 +87,16 @@ public class Menu_Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
-        
+        Index indx = new Index();
+        indx.setVisible(true);
+        this.setVisible(false);        
     }//GEN-LAST:event_btn_salirActionPerformed
+
+    private void btn_AdmfuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AdmfuncionariosActionPerformed
+        Control_Funcionarios ctrlFuncionarios = new Control_Funcionarios();
+        ctrlFuncionarios.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_AdmfuncionariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -117,9 +136,17 @@ public class Menu_Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Admfuncionarios;
     private javax.swing.JButton btn_Admusuarios;
+    private javax.swing.JButton btn_Admvacunas;
+    private javax.swing.JButton btn_Reporte;
     private javax.swing.JButton btn_salir;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
+    
+    private void controlSesion(){
+        if (login.TipoCargo() != 2) {
+            btn_Admvacunas.setVisible(false);
+        }
+    }
+
 }

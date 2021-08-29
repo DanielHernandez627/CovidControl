@@ -3,6 +3,7 @@ package Modelo;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
+import javax.swing.JOptionPane;
 
 
 public class Utilidades {
@@ -29,5 +30,37 @@ public class Utilidades {
         decodificada = new String(decoderarray);
         
         return decodificada;
+    }
+    
+    public boolean controlContrasenas(String password){
+        
+        boolean result = false;
+        
+        try{
+            validarPassword(password);
+            result = true;
+    	}catch(CustomException ex){
+           JOptionPane.showMessageDialog(null,ex.getMessage());
+    	}
+        
+        return result;
+    }
+    
+    private void validarPassword(String password) throws CustomException{
+        
+        if(password.contains("$")){
+            throw new CustomException("La contraseña contiene un caracter no permitido digitela de nuevo");
+        }else if(password.contains("%")){
+            throw new CustomException("La contraseña contiene un caracter no permitido digitela de nuevo");
+        }else if(password.contains("&")){
+            throw new CustomException("La contraseña contiene un caracter no permitido digitela de nuevo");
+        }else if(password.contains("*")){
+            throw new CustomException("La contraseña contiene un caracter no permitido digitela de nuevo");
+        }else if(password.contains("-")){
+            throw new CustomException("La contraseña contiene un caracter no permitido digitela de nuevo");
+        }else if(password.contains("ñ")){
+            throw new CustomException("La contraseña contiene un caracter no permitido digitela de nuevo");
+        }
+        
     }
 }
