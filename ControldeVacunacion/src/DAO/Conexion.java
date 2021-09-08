@@ -21,7 +21,7 @@ public class Conexion {
               //cargar nuestro driver
               Class.forName("com.mysql.jdbc.Driver");
               con=DriverManager.getConnection("jdbc:mysql://localhost:3306/covidcontrol","root","");
-              System.out.println("conexion establecida");
+              //System.out.println("conexion establecida");
               
           } 
          catch (ClassNotFoundException | SQLException e) 
