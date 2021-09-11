@@ -58,6 +58,11 @@ public class Menu_Principal extends javax.swing.JFrame {
         jPanel2.add(btn_Admfuncionarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 210, -1));
 
         btn_Admvacunas.setText("Administracion de Vacunas");
+        btn_Admvacunas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_AdmvacunasActionPerformed(evt);
+            }
+        });
         jPanel2.add(btn_Admvacunas, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 210, -1));
 
         btn_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/user_interface_exit_door_icon_191677.png"))); // NOI18N
@@ -97,6 +102,12 @@ public class Menu_Principal extends javax.swing.JFrame {
         ctrlFuncionarios.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btn_AdmfuncionariosActionPerformed
+
+    private void btn_AdmvacunasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AdmvacunasActionPerformed
+        Administracion_Vacunas admVacunas = new Administracion_Vacunas();
+        admVacunas.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_AdmvacunasActionPerformed
 
     /**
      * @param args the command line arguments

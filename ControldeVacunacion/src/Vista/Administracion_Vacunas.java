@@ -5,17 +5,28 @@
  */
 package Vista;
 
+import Controlador.vacunasCtrl;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author pillo
  */
 public class Administracion_Vacunas extends javax.swing.JFrame {
 
+    /*Inicio Objetos Metodos*/
+        vacunasCtrl objVacunasCtrl = new vacunasCtrl();
+    /*Fin Objetos Metodos*/
+    
+    private int idAction;
+    private int idVacuna;
+        
     /**
      * Creates new form Administracion_Vacunas
      */
     public Administracion_Vacunas() {
         initComponents();
+        inicializarcomponentes();
     }
 
     /**
@@ -27,21 +38,178 @@ public class Administracion_Vacunas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txt_nombrevacuna = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txt_siglavacuna = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txt_diasvacunas = new javax.swing.JTextField();
+        btn_Add = new javax.swing.JButton();
+        btn_Edit = new javax.swing.JButton();
+        btn_Accept = new javax.swing.JButton();
+        btn_cancel = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jComboBoxVacunas = new javax.swing.JComboBox();
+        jCheckBoxActiva = new javax.swing.JCheckBox();
+        btn_atras = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setText("Administracion de Vacunas");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
+
+        jLabel2.setText("Nombre Vacuna");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+
+        txt_nombrevacuna.setEnabled(false);
+        jPanel1.add(txt_nombrevacuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 140, -1));
+
+        jLabel3.setText("Sigla Vacuna");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, -1, -1));
+
+        txt_siglavacuna.setEnabled(false);
+        jPanel1.add(txt_siglavacuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 140, -1));
+
+        jLabel4.setText("Dias de Segunda Dosis");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, -1, -1));
+
+        txt_diasvacunas.setEnabled(false);
+        jPanel1.add(txt_diasvacunas, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 140, -1));
+
+        btn_Add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/plus_add_insert_button_icon_191637.png"))); // NOI18N
+        btn_Add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_AddActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_Add, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, 40));
+
+        btn_Edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/test_tasks_list_clipboard_todo_icon_191634.png"))); // NOI18N
+        btn_Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_EditActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_Edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, -1, 40));
+
+        btn_Accept.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/approve_right_apply_done_checked_icon_191671.png"))); // NOI18N
+        btn_Accept.setEnabled(false);
+        btn_Accept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_AcceptActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_Accept, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, 40));
+
+        btn_cancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cross_wrong_close_delete_icon_191608.png"))); // NOI18N
+        btn_cancel.setEnabled(false);
+        btn_cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, 40));
+
+        jLabel5.setText("Vacunas:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+
+        jComboBoxVacunas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxVacunasActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jComboBoxVacunas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 200, -1));
+
+        jCheckBoxActiva.setBackground(new java.awt.Color(204, 204, 204));
+        jCheckBoxActiva.setText("Activa");
+        jCheckBoxActiva.setEnabled(false);
+        jPanel1.add(jCheckBoxActiva, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 180, -1, -1));
+
+        btn_atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/point_left_arrow_icon_191651.png"))); // NOI18N
+        btn_atras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_atrasActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 70, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 542, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 709, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 365, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AddActionPerformed
+        ActivarCampos(true);
+        limpiarCampos();
+        this.idAction = 1;
+    }//GEN-LAST:event_btn_AddActionPerformed
+
+    private void btn_EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditActionPerformed
+        ActivarCampos(true);
+        this.idAction = 2;
+    }//GEN-LAST:event_btn_EditActionPerformed
+
+    private void btn_AcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AcceptActionPerformed
+        int indactiva = 0;
+        
+        if (jCheckBoxActiva.isSelected() == true) {
+            indactiva = 1;
+        }
+        
+        if (idAction == 1) {
+            addVacuna(txt_nombrevacuna.getText(),txt_siglavacuna.getText(),Integer.parseInt(txt_diasvacunas.getText()),indactiva);
+        }else if(idAction == 2){
+            editVacuna(txt_nombrevacuna.getText(),txt_siglavacuna.getText(),Integer.parseInt(txt_diasvacunas.getText()),indactiva,idVacuna);
+        }
+    }//GEN-LAST:event_btn_AcceptActionPerformed
+
+    private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
+        int resp = JOptionPane.showConfirmDialog(null, "¿Esta por detener el proceso esta seguro?", "Alerta!", JOptionPane.YES_NO_OPTION);
+        if (resp == 0) {
+            reset();
+        }
+    }//GEN-LAST:event_btn_cancelActionPerformed
+
+    private void jComboBoxVacunasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxVacunasActionPerformed
+        String vacunaselect="";
+        String separador [];
+        
+        if (jComboBoxVacunas.getSelectedItem() == null) {
+            
+        }else{
+            vacunaselect = (String) jComboBoxVacunas.getSelectedItem();
+            separador = vacunaselect.split("-");
+
+            if (vacunaselect.equals("Seleccione una opcion ...")) {
+                this.idVacuna = 0;
+            }else{
+                this.idVacuna = Integer.parseInt(separador[0].trim());
+                showVacuna(idVacuna);
+            }
+        }
+    }//GEN-LAST:event_jComboBoxVacunasActionPerformed
+
+    private void btn_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atrasActionPerformed
+        Menu_Principal menp = new Menu_Principal();
+        menp.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_atrasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +247,73 @@ public class Administracion_Vacunas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Accept;
+    private javax.swing.JButton btn_Add;
+    private javax.swing.JButton btn_Edit;
+    private javax.swing.JButton btn_atras;
+    private javax.swing.JButton btn_cancel;
+    private javax.swing.JCheckBox jCheckBoxActiva;
+    private javax.swing.JComboBox jComboBoxVacunas;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txt_diasvacunas;
+    private javax.swing.JTextField txt_nombrevacuna;
+    private javax.swing.JTextField txt_siglavacuna;
     // End of variables declaration//GEN-END:variables
+
+    private void inicializarcomponentes(){
+        cargarListaVacunas();
+    }
+
+    private void cargarListaVacunas(){
+        objVacunasCtrl.obtenerVacunas(jComboBoxVacunas);
+    }
+    
+    private void ActivarCampos(boolean e){
+        txt_nombrevacuna.setEnabled(e);
+        txt_siglavacuna.setEnabled(e);
+        txt_diasvacunas.setEnabled(e);
+        btn_Accept.setEnabled(e);
+        btn_cancel.setEnabled(e);
+        jCheckBoxActiva.setEnabled(e);
+    }
+    
+    private void limpiarCampos(){
+        txt_nombrevacuna.setText("");
+        txt_siglavacuna.setText("");
+        txt_diasvacunas.setText("");
+    }
+    
+    private void addVacuna(String nombrevacuna,String siglaVacuna,int diasvacuna,int indactiva){
+        if (objVacunasCtrl.registroVacunas(nombrevacuna, siglaVacuna, diasvacuna,indactiva) == true) {
+            JOptionPane.showMessageDialog(null,"Vacuna Registrada con Exito !!");
+            reset();
+        }else{
+            JOptionPane.showMessageDialog(null,"Fallo en el registro !!");
+        }
+    }
+    
+    private void editVacuna(String nombrevacuna,String siglaVacuna,int diasvacuna,int indactiva,int idvacuna){
+        if (objVacunasCtrl.editarVacuna(nombrevacuna, siglaVacuna, diasvacuna,indactiva,idvacuna) == true) {
+            JOptionPane.showMessageDialog(null,"Vacuna Actualizada con Exito !!");
+            reset();
+        }else{
+            JOptionPane.showMessageDialog(null,"Fallo en la actualizacion !!");
+        }
+    }
+    
+    private void showVacuna(int idVacuna){
+        objVacunasCtrl.obtenerInfoVacuna(txt_nombrevacuna, txt_siglavacuna, txt_diasvacunas,idVacuna,jCheckBoxActiva);
+    }
+    
+    private void reset(){
+        limpiarCampos();
+        ActivarCampos(false);
+        jComboBoxVacunas.removeAllItems();
+        cargarListaVacunas();
+    }
 }
